@@ -16,5 +16,8 @@ import lombok.Data;
 public class AIGeneratedTweetToKafkaServiceConfigData {
 	
 	private List<String> streamingDataKeywords;
+	private Long schedulerDurationSec;
+	private String prompt;
+	private String keywordsPlaceholder;
 
 }
