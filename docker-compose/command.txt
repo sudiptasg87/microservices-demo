@@ -1,0 +1,3 @@
+Startup : podman-compose -f common.yaml -f kafka_cluster.yaml up -d
+Shutdown: podman-compose -f common.yaml -f kafka_cluster.yaml down
+Kafkacat monitoring: podman run -it --network=host confluentinc/cp-kafkacat kafkacat -L -b localhost:19092

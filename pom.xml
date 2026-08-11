@@ -17,10 +17,13 @@
 		<java.version>25</java.version>
 		<maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
 		<spring-ai.version>2.0.0</spring-ai.version>
+		<avro.version>1.12.1</avro.version>
 	</properties>
 
 	<modules>
+		<module>app-config-data</module>
 		<module>ai-generated-tweet-to-kafka-service</module>
+		<module>kafka/kafka-model</module>
 	</modules>
 
 	<dependencyManagement>
@@ -36,6 +39,11 @@
 				<version>${spring-ai.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.avro</groupId>
+				<artifactId>avro</artifactId>
+				<version>${avro.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.projectlombok</groupId>
