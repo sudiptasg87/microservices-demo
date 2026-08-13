@@ -6,7 +6,7 @@ import org.springframework.ai.chat.client.ChatClient.ChatClientRequestSpec;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.ssg.ai.tweet.config.AIGeneratedTweetToKafkaServiceConfigData;
+import com.ssg.ai.config.AIGeneratedTweetToKafkaServiceConfigData;
 import com.ssg.ai.tweet.exception.AIGeneratedTweetToKafkaServiceException;
 import com.ssg.ai.tweet.service.AIService;
 

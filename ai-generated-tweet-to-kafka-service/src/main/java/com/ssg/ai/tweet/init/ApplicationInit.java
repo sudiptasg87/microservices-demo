@@ -11,7 +11,7 @@ import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Component;
 
-import com.ssg.ai.tweet.config.AIGeneratedTweetToKafkaServiceConfigData;
+import com.ssg.ai.config.AIGeneratedTweetToKafkaServiceConfigData;
 import com.ssg.ai.tweet.runner.AIStreamRunner;
 
 import lombok.extern.slf4j.Slf4j;

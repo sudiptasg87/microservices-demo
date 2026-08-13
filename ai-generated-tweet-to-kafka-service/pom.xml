@@ -29,10 +29,25 @@
 			<artifactId>lombok</artifactId>
 		</dependency>
 		<dependency>
-            <groupId>com.ssg.microservices.demo</groupId>
-            <artifactId>app-config-data</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+			<groupId>com.ssg.microservices.demo</groupId>
+			<artifactId>app-config-data</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.ssg.microservices.demo</groupId>
+			<artifactId>kafka-admin</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.ssg.microservices.demo</groupId>
+			<artifactId>kafka-producer</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.twitter4j</groupId>
+			<artifactId>twitter4j-stream</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

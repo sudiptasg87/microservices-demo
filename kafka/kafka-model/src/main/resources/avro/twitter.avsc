@@ -1,10 +1,11 @@
-{"namespace": "com.ssg.ai.kafka.avro.model",
+{
   "type": "record",
   "name": "TwitterAvroModel",
+  "namespace": "com.ssg.ai.kafka.avro.model",
   "fields": [
     {"name": "userId", "type": "long"},
     {"name": "id", "type": "long"},
-    {"name": "text", "type": ["null", "string"]},
-    {"name": "createdAt", "type": ["null", "long"], "logicalType": ["null", "date"]}
+    {"name": "text", "type": ["null", {"type": "string", "avro.java.string": "String"}]},
+    {"name": "createdAt", "type": ["null", "long"]}
   ]
 }

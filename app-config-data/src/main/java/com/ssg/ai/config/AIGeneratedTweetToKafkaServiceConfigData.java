@@ -1,4 +1,4 @@
-package com.ssg.ai.tweet.config;
+package com.ssg.ai.config;
 
 import java.util.List;
 
