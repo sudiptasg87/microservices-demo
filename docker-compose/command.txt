@@ -3,3 +3,7 @@ Shutdown: podman-compose -f common.yaml -f kafka_cluster.yaml down
 Kafkacat monitoring: podman run -it --network=host confluentinc/cp-kafkacat kafkacat -L -b localhost:19092
 
 Check msgs: podman run -it --network=host confluentinc/cp-kafkacat kafkacat -C -b localhost:19092 -t twitter-topic
+
+With service:
+Startup : podman-compose -f common.yaml -f kafka_cluster.yaml -f services.yaml up -d
+Shutdown: podman-compose -f common.yaml -f kafka_cluster.yaml -f services.yaml down
