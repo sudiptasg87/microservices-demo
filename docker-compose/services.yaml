@@ -6,6 +6,9 @@ services:
       - "5005:5005"
     volumes:
       - "./docker-logs:/workspace/logs"
+    user: root
+    depends_on:
+      - config-server
     environment:
       - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
       - "LOGGING_LEVEL_COM_SSG_MICROSERVICES_DEMO=info"
@@ -13,5 +16,28 @@ services:
       - "KAFKA-CONFIG_TOPIC-NAME=twitter-topic"
       - "KAFKA-CONFIG_BOOTSTRAP-SERVERS=kafka-broker-1:9092, kafka-broker-2:9092, kafka-broker-3:9092"
       - "KAFKA-CONFIG_SCHEMA-REGISTRY-URL=http://schema-registry:8081"
+      - "SPRING_CLOUD_CONFIG_USERNAME=admin"
+      - "SPRING_CLOUD_CONFIG_PASSWORD=secret1234"
+      - "SPRING_CONFIG_IMPORT=optional:configserver:http://config-server:8888"
+      - "SPRING_CLOUD_CONFIG_FAIL_FAST=true"
+      - "SPRING_RETRY_MAX_ATTEMPTS=30"
+      - "SPRING_RETRY_INITIAL_INTERVAL=2000"
+      - "SPRING_RETRY_MULTIPLIER=1.5"
+      - "SPRING_RETRY_MAX_INTERVAL=10000"
+      - "CONFIG_SERVER_URL=http://config-server:8888"
+    networks:
+      - ${GLOBAL_NETWORK:-services}
+  config-server:
+    image: com.ssg.microservices.demo/config.server:${SERVICE_VERSION:-latest}
+    ports:
+      - "5006:8888"
+    volumes:
+      - "./docker-logs:/workspace/logs"
+      - "../config-server-repository:/config-server-repository"
+    environment:
+      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xms128m -Xmx256m"
+      - "SPRING_CLOUD_CONFIG_SERVER_GIT_URI=file:///config-server-repository"
+      - "SPRING_SECURITY_USER_NAME=admin"
+      - "SPRING_SECURITY_USER_PASSWORD=secret1234"
     networks:
       - ${GLOBAL_NETWORK:-services}
